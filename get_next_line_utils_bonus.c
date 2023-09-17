@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemur <atemur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 02:38:39 by atemur            #+#    #+#             */
-/*   Updated: 2023/09/17 14:28:19 by atemur           ###   ########.fr       */
+/*   Created: 2023/09/14 20:16:48 by atemur            #+#    #+#             */
+/*   Updated: 2023/09/17 14:27:06 by atemur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	n_control(char *str)
 {
@@ -62,8 +62,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		cpy[i] = s1[i];
 	while (s2[j])
 		cpy[i++] = s2[j++];
-	cpy[i] = '\0';
 	free(s1);
+	cpy[i] = '\0';
 	return (cpy);
 }
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atemur <atemur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 02:38:43 by atemur            #+#    #+#             */
-/*   Updated: 2023/09/17 14:16:34 by atemur           ###   ########.fr       */
+/*   Created: 2023/09/14 20:16:41 by atemur            #+#    #+#             */
+/*   Updated: 2023/09/17 14:18:07 by atemur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_to_fd(int fd, char *str)
 {
@@ -39,15 +39,15 @@ char	*read_to_fd(int fd, char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[1024];
 	char		*newstr;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	str = read_to_fd(fd, str);
-	if (!str)
+	str[fd] = read_to_fd(fd, str[fd]);
+	if (!str[fd])
 		return (0);
-	newstr = ft_updated_str(str);
-	str = ft_last_str(str);
+	newstr = ft_updated_str(str[fd]);
+	str[fd] = ft_last_str(str[fd]);
 	return (newstr);
 }
